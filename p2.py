@@ -10,8 +10,8 @@ target = 0
 
 def brute_force(n):
     # return sum of even valued fibonacci series
-    result = 2
-    next = 2
+    result = 0
+    next = 1
     prev = 1
 
     while next < n:
@@ -22,9 +22,22 @@ def brute_force(n):
 
     return result
 
+def finonnaci_sum(n):
+    a = 1
+    b = 1
+    c = a + b
+    sum = 0
+
+    while c < n:
+        sum += c
+        a = b + c
+        b = c + a
+        c = a + b
+
+    return sum
 
 def execute(n):
-    result = brute_force(n)
+    result = finonnaci_sum(n)
     print ("input: %i output: %i" %(n, result))
     
 if __name__ == '__main__':
