@@ -26,19 +26,19 @@ def is_prime(n):
 
 def brute_force(n):
     # return largest prime of n
+
     factors = []
-    for i in range(2,n):
+    for i in range(2,int(math.sqrt(n)) + 1):
         if n % i == 0:
             factors.append(i)
-    
-    print('Factors:', factors)
-
+        
     largest_prime = -1
     for factor in factors:
         if is_prime(factor) and largest_prime < factor:
             largest_prime = factor
 
     return largest_prime
+
 
 def execute(n):
     result = brute_force(n)
