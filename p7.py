@@ -22,16 +22,16 @@ def is_prime(n):
     return True
 
 def brute_force(n):
-    count = 0
-    i = 2
-    last_prime = i
+    count = 1
+    i = 3
+    last_prime = 2
     while count < n:
         if is_prime(i):
 
             count += 1
             last_prime = i
 
-        i += 1
+        i += 2
 
     return last_prime
 
@@ -40,6 +40,7 @@ def execute(n):
     print ("Result: ", result)
    
 if __name__ == '__main__':
+    execute(1)
     execute(10001)
     
 
