@@ -15,10 +15,11 @@ def brute_force(n):
     a = 1
 
     while a < n:
-        for b in range(a + 1, n-1):
-            c = math.sqrt(a*a + b*b)
+        for b in range(a + 1, n-1-a):
+            c = n - a - b
+            
             # check if the are pythagoream triplet.
-            if a + b + c == n:
+            if a*a + b*b == c*c:
                 # return the product
                 return a*b*c
 
