@@ -3,19 +3,24 @@ How many routes are there through a 20x20 grid?
 """
 
 cache = {}
+grid = []
+
 
 def count_routes(m, n):
-    global cache
 
-    if n == 0 or m == 0:
-        return 1
+    grid = [[0]*(m+1) for _ in range(n+1)]
+    
+    for i in range(m + 1):
+        grid[i][0] = 1
 
-    if (m,n) in cache:
-        return cache[(m,n)]
+    for j in range(n + 1):
+        grid[0][j] = 1
 
-    count = count_routes(m, n - 1) + count_routes(m - 1, n)
-    cache[(m,n)] = count
-    return count
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            grid[i][j] = grid[i-1][j] + grid[i][j-1]
+
+    return grid[m][n]
 
     
 
