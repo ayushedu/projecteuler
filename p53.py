@@ -6,15 +6,16 @@ In combinatorics, we use the notation, 5C3 = 10.
 How many, not necessarily distinct, values of  nCr, for 1 <= n <= 100, are greater than one-million?
 """
 
-factorials = {}
+import numpy as np
+
+factorials = None
 
 def get_factorial(n):
     global factorials
 
-    try:
-        factorials[n]
-    except KeyError:
-        pass
+    if factorials[n]:
+        return factorials[n]
+
        
 
     if n <= 1:
@@ -34,6 +35,8 @@ def get_combination(n):
     return count
 
 def brute_force(limit):
+    global factorials
+    factorials = [None] * (limit + 1)
     count = 0
     for n in range(2, limit+1):
         count += get_combination(n)
