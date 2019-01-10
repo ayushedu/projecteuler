@@ -6,7 +6,7 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 """
 
 def is_palindrome(n):
-    """
+    
     s = str(n)
 
     mid = len(s)//2
@@ -27,7 +27,7 @@ def is_palindrome(n):
         reversed = int(reversed) # if n is of type string, convert reversed to string
 
     return reversed == n
-
+    """
 
 def get_binary(n):
     return "{0:b}".format(n)
